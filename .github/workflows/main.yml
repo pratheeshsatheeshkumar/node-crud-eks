@@ -37,7 +37,7 @@ jobs:
 
     - name: Update Deployment YAML
       run: |
-        sed -i 's|image: pratheeshsatheeshkumar/nodeapp:.*|image: pratheeshsatheeshkumar/nodeapp:$GITHUB_SHA|' deployment.yaml
+        sed -i 's|image: pratheeshsatheeshkumar/nodeapp:.*|image: pratheeshsatheeshkumar/nodeapp:${{ github.sha }}|' deployment.yaml
   
         
     - name: Commit and Push Deployment YAML
@@ -45,5 +45,5 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add deployment.yaml
-          git commit -m "Update deployment image tag to $GITHUB_SHA"
+          git commit -m "Update deployment image tag to ${{ github.sha }}"
           git push origin feature
