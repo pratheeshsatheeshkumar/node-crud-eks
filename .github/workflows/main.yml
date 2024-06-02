@@ -3,7 +3,7 @@ name: CI Pipeline
 on:
   push:
     branches:
-      - main
+      - feature
   pull_request:
     branches:
       - main
@@ -34,7 +34,7 @@ jobs:
         tags: |
           ${{ secrets.DOCKER_USERNAME }}/nodeapp:${{ github.sha }}
           ${{ secrets.DOCKER_USERNAME }}/nodeapp:latest
-               
+
     - name: Update Deployment YAML
       run: |
         sed -i 's|image: pratheeshsatheeshkumar/nodeapp:.*|image: pratheeshsatheeshkumar/nodeapp:$GITHUB_SHA|' deployment.yaml
@@ -46,4 +46,4 @@ jobs:
           git config --local user.name "GitHub Action"
           git add deployment.yaml
           git commit -m "Update deployment image tag to $GITHUB_SHA"
-          git push origin main
+          git push origin feature
