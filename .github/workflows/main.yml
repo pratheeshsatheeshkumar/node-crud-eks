@@ -35,7 +35,6 @@ jobs:
     - name: Update Deployment YAML
       run: |
         sed -i 's|image: pratheeshsatheeshkumar/nodeapp:.*|image: pratheeshsatheeshkumar/nodeapp:${{ github.sha }}|' ./manifests/deployment.yaml
-  
         
     - name: Commit and Push Deployment YAML
       run: |
