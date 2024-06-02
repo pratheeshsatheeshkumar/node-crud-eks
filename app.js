@@ -9,16 +9,18 @@ const app = express();
 const playerRoutes = require('./routes/player.routes');
 const homeRoutes = require('./routes/index.routes');
 const port = 2000;
+const fs = require('fs');
+require('dotenv').config();
 
 // create connection to database
 // the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
 const db = mysql.createConnection ({
-    host: 'nodeprojectmysql.mysql.database.azure.com',
-    user: 'mysql',
-    password: 'red@686673',
-    database: 'socka',
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
     ssl: {
-        mode: 'DISABLED'
+        ca: fs.readFileSync(process.env.DB_SSL_CA)
     }
 });
 
