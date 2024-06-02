@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: CI Pipeline
 
 on:
   push:
@@ -34,3 +34,5 @@ jobs:
         tags: |
           ${{ secrets.DOCKER_USERNAME }}/nodeapp:${{ github.sha }}
           ${{ secrets.DOCKER_USERNAME }}/nodeapp:latest
+
+          
