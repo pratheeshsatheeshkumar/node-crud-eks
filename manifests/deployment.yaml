@@ -12,14 +12,14 @@ spec:
   selector:
     matchLabels:
       app: node-app
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
         app: node-app
     spec:
       containers:
-      - image: pratheeshsatheeshkumar/nodeapp:latest
+      - image: pratheeshsatheeshkumar/nodeapp:d3fea978b9dda36e86e60c537593b22a87ba3958
         imagePullPolicy: Always
         name: node-app
         ports:

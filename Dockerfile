@@ -8,10 +8,13 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install express express-fileupload body-parser mysql ejs req-flash --save
+RUN npm install express express-fileupload body-parser mysql ejs req-flash dotenv --save
 
 # Copy the rest of the application code to the working directory
 COPY . .
+
+# Define a volume to persist data
+VOLUME /public/assets/img
 
 # Expose the port that the app runs on
 EXPOSE 2000
