@@ -40,6 +40,7 @@ jobs:
       run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          git pull origin feature
           git add deployment.yaml
           git commit -m "Update deployment image tag to ${{ github.sha }}"
           git push origin feature
