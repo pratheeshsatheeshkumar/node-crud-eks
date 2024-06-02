@@ -31,6 +31,6 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: 
+        tags: |
           ${{ secrets.DOCKER_USERNAME }}/nodeapp:${{ github.sha }}
           ${{ secrets.DOCKER_USERNAME }}/nodeapp:latest
