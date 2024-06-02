@@ -34,11 +34,7 @@ jobs:
         tags: |
           ${{ secrets.DOCKER_USERNAME }}/nodeapp:${{ github.sha }}
           ${{ secrets.DOCKER_USERNAME }}/nodeapp:latest
-          
-    - name: Security Scanning with Trivy
-      run: trivy pratheeshsatheeshkumar/nodeapp:latest
-  
-
+               
     - name: Update Deployment YAML
       run: |
         sed -i 's|image: pratheeshsatheeshkumar/nodeapp:.*|image: pratheeshsatheeshkumar/nodeapp:$GITHUB_SHA|' deployment.yaml

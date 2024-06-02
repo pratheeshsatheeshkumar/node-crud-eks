@@ -19,7 +19,7 @@ spec:
         app: node-app
     spec:
       containers:
-      - image: pratheeshsatheeshkumar/nodeapp:latest  
+      - image: pratheeshsatheeshkumar/nodeapp:$GITHUB_SHA
         imagePullPolicy: Always
         name: node-app
         ports:
