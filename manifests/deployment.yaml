@@ -52,10 +52,10 @@ kind: Ingress
 metadata:
   namespace: nodeproject-dev
   name: node-app-ingress
-   annotations:
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-southeast-2:905418455397:certificate/79a695f2-b258-43d9-a76d-96ccc0747a74  # Update with your ACM certificate ARN  
+annotations:
+  alb.ingress.kubernetes.io/scheme: internet-facing
+  alb.ingress.kubernetes.io/target-type: ip
+  alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-southeast-2:905418455397:certificate/79a695f2-b258-43d9-a76d-96ccc0747a74  # Update with your ACM certificate ARN  
 spec:
   ingressClassName: alb
   rules:
