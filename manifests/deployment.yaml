@@ -19,7 +19,7 @@ spec:
         app: node-app
     spec:
       containers:
-      - image: pratheeshsatheeshkumar/nodeapp:9e19e2f23579a006faf9ed9db39c7161622c07a4
+      - image: pratheeshsatheeshkumar/nodeapp:6829f5b7f5f2c411fa9f9cb1115132be7daf19ff
         imagePullPolicy: Always
         name: node-app
         ports:
