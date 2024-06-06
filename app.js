@@ -57,3 +57,37 @@ app.get('*', function(req, res, next){
 app.listen(port, () => {
     console.log(`Server running on port: ${port}`);
 });
+// connect to database
+db.connect((err) => {
+    if (err) {
+        throw err;
+    }
+    console.log('Connected to database');
+});
+global.db = db;
+
+// configure middleware
+app.set('port', process.env.port || port); // set express to use this port
+app.set('views', __dirname + '/views'); // set express to look in this folder to render our view
+app.set('view engine', 'ejs'); // configure template engine
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json()); // parse form data client
+app.use(express.static(path.join(__dirname, 'public'))); // configure express to use public folder
+app.use(fileUpload()); // configure fileupload
+
+// routes for the app
+app.use('/', homeRoutes);
+app.use('/player', playerRoutes);
+app.get('*', function(req, res, next){
+    res.status(404);
+
+    res.render('404.ejs', {
+        title: "Page Not Found",
+    });
+
+});
+
+// set the app to listen on the port
+app.listen(port, () => {
+    console.log(`Server running on port: ${port}`);
+});
