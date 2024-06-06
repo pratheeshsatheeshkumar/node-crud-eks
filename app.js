@@ -20,7 +20,7 @@ const db = mysql.createConnection ({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     ssl: {
-        ca: fs.readFileSync(process.env.DB_SSL_CA)
+        mode: 'DISABLED'
     }
 });
 
