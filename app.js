@@ -10,7 +10,7 @@ const playerRoutes = require('./routes/player.routes');
 const homeRoutes = require('./routes/index.routes');
 const port = 2000;
 const fs = require('fs');
-require('dotenv').config();
+//require('dotenv').config();
 
 // create connection to database
 // the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
